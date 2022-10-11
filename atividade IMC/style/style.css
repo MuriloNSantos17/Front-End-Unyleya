@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-color: white;
+}
+
+main{
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1, h2, h3{
+    text-align: center;
+    font-family: 'Open';
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+    text-align: left;
+    font-size: 3em;
+}
+
+h3{
+    color: #007C8A;
+}
+
+
+hr{
+    width: 400px;
+    height: 4px;
+    background-color: red;
+    border: none;
+}
+
+
+.section-background h2{
+    margin-top: 10px;
+    text-align: left;
+}
+
+p{
+    
+    text-align: center;
+    padding: 20px;
+}
+
+.section-background{
+    background-image: url('../images/background.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    height: 400px;
+    padding-top: 100px;
+    padding-left: 50px;
+   
+}
+
+.div-calculadora{
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.438);
+    padding: 50px;
+}
+
+input{
+    display: block;
+    height: 46px;
+    border: solid 1px;
+    background-color: #F7F7F7;
+    border-color: #007C8A;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    
+}
+
+input[type=number]:focus{
+    border: solid 1px;
+    border-color: #007c8a86;
+    box-shadow: 1px 1px 1px #007c8a86;
+    
+}
+
+button{
+    background: #00b4bd;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 130px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #02868d;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 130px;
+    cursor: pointer;
+}
