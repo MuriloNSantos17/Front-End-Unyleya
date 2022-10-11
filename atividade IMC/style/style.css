@@ -111,3 +111,7 @@ button:hover{
     width: 130px;
     cursor: pointer;
 }
+
+span{
+    color: red;
+}
