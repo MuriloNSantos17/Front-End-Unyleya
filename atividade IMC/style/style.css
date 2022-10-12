@@ -147,6 +147,11 @@ a :hover{
 @media only screen and (max-width : 600px) {
     .div-calculadora{
         width: 350px;
+        
+    }
+
+    .section-background{
+        height: 200px;
     }
 
     h1,h2{
