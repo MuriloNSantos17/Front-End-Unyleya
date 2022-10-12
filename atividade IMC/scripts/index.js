@@ -68,7 +68,7 @@ function validaDados(){
         altura = Number(inputAltura.value);
         peso = Number(inputPeso.value);
 
-        if(altura > 28.5){
+        if(altura > 2.85){
             showSweetAlert('info','Erro?',`Você tem ${altura} cm de altura? Se sim fale com o Guinness, pois a pessoa mais alta do mundo tem apenas 28.5 cm de altura!`,()=>{
                 inputAltura.value='';
                 inputAltura.focus();
