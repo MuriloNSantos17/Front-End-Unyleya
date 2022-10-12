@@ -45,7 +45,6 @@ function validaDados(){
     var altura = String(inputAltura.value).replace(',','.')
     var peso = String(inputPeso.value).replace(',','.');
 
-    console.log(Number.isInteger(Number(altura)));
     
     if(inputAltura.value.trim()=='' || inputPeso.value.trim()==''){
         showSweetAlert('error','Erro','Preencha todos os campos antes de continuar',()=>{
@@ -54,7 +53,7 @@ function validaDados(){
         isValido = false;
         
     }
-    else if(Number.isInteger(Number(altura)) == false || Number.isInteger(Number(altura)) == false) 
+    else if(Number.isNaN(Number(altura)) || Number.isNaN(Number(peso))) 
     {
         showSweetAlert('error','Erro','Tipo de dado inválido na altura ou peso!',()=>{
             inputAltura.focus();
@@ -69,7 +68,7 @@ function validaDados(){
         peso = Number(inputPeso.value);
 
         if(altura > 2.85){
-            showSweetAlert('info','Erro?',`Você tem ${altura} cm de altura? Se sim fale com o Guinness, pois a pessoa mais alta do mundo tem apenas 28.5 cm de altura!`,()=>{
+            showSweetAlert('info','Erro?',`Você tem ${altura} M de altura? Se sim fale com o Guinness, pois a pessoa mais alta do mundo tem apenas 2.85 cm de altura!`,()=>{
                 inputAltura.value='';
                 inputAltura.focus();
             });
