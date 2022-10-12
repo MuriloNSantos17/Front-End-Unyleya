@@ -22,11 +22,19 @@ botaoCalcular.addEventListener('click',(evt)=>{
 });
 
 
-function showSweetAlert(icon, titulo, mensagem){
+function showSweetAlert(icon, titulo, mensagem, functionConfirmed =null){
     Swal.fire({
         title: titulo,
         icon: icon,
         text: mensagem
+    }).then((result)=>{
+        if(result.isConfirmed){
+            if(functionConfirmed!=null){
+
+                setTimeout(functionConfirmed,500)
+                
+            }
+        }
     })
 }
 
@@ -36,14 +44,24 @@ function validaDados(){
 
     var altura = String(inputAltura.value).replace(',','.')
     var peso = String(inputPeso.value).replace(',','.');
+
+    console.log(Number.isInteger(Number(altura)));
     
     if(inputAltura.value.trim()=='' || inputPeso.value.trim()==''){
-        showSweetAlert('error','Erro','Preencha todos os campos antes de continuar');
+        showSweetAlert('error','Erro','Preencha todos os campos antes de continuar',()=>{
+            inputAltura.focus();
+        });
         isValido = false;
         
     }
-    else if(typeof Number(altura)!='number' || typeof Number(peso)!='number'){
-        showSweetAlert('error','Erro','Tipo de dado inválido na altura ou peso!');
+    else if(Number.isInteger(Number(altura)) == false || Number.isInteger(Number(altura)) == false) 
+    {
+        showSweetAlert('error','Erro','Tipo de dado inválido na altura ou peso!',()=>{
+            inputAltura.focus();
+            limparCampos();
+            inputAltura.setAttribute('type','number');
+            inputPeso.setAttribute('type','number');
+        });
         isValido = false;
         
     }else{
@@ -51,11 +69,17 @@ function validaDados(){
         peso = Number(inputPeso.value);
 
         if(altura > 28.5){
-            showSweetAlert('info','Erro?',`Você tem ${altura} cm de altura? Se sim fale com o Guinness, pois a pessoa mais alta do mundo tem apenas 28.5 cm de altura!`);
+            showSweetAlert('info','Erro?',`Você tem ${altura} cm de altura? Se sim fale com o Guinness, pois a pessoa mais alta do mundo tem apenas 28.5 cm de altura!`,()=>{
+                inputAltura.value='';
+                inputAltura.focus();
+            });
             
             isValido=false;
         }else if(peso > 595){
-            showSweetAlert('info','Erro?',`Você tem ${peso} KG? Se sim fale com o Guinness, pois a pessoa mais pesada do mundo tem apenas 595 KG`);
+            showSweetAlert('info','Erro?',`Você tem ${peso} KG? Se sim fale com o Guinness, pois a pessoa mais pesada do mundo tem apenas 595 KG`,()=>{
+                inputPeso.value='';
+                inputPeso.focus
+            });
             isValido=false;
             
         }
@@ -107,9 +131,17 @@ function showResultado(img, descricao){
     }).then((result)=>{
 
         if(result.isConfirmed){
-            inputAltura.value='';
-            inputPeso.value='';
-            inputAltura.focus();
+            setTimeout(()=>{
+                inputAltura.value='';
+                inputPeso.value='';
+                inputAltura.focus();
+            },500);
+            
         }
     });
+}
+
+function limparCampos(){
+    inputAltura.value='';
+    inputPeso.value='';
 }
